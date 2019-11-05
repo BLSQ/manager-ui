@@ -5,8 +5,10 @@
 ## Install
 
 ```bash
-npm install --save manager-ui
+yarn add https://github.com/BLSQ/manager-ui.git
 ```
+
+
 
 ## Story book
 
