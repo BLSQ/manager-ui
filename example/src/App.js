@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ExampleComponent from 'manager-ui'
+import InfoBox from "manager-ui";
+import theme from "./theme";
+import { ThemeProvider } from "@material-ui/styles";
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
+      <ThemeProvider theme={theme}>
+        <div>
+          <InfoBox text="Modern React component module" />
+        </div>
+      </ThemeProvider>
+    );
   }
 }
