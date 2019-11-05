@@ -2,28 +2,23 @@
 
 > Dhis2 manager apps common component library
 
-[![NPM](https://img.shields.io/npm/v/manager-ui.svg)](https://www.npmjs.com/package/manager-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
 
 ```bash
 npm install --save manager-ui
 ```
 
-## Usage
+## Story book
 
-```jsx
-import React, { Component } from 'react'
+```
+yarn storybook
+```
 
-import MyComponent from 'manager-ui'
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+## Build
+
+```
+yarn build
 ```
 
 ## License
