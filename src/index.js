@@ -1,3 +1,5 @@
-import InfoBox from "./InfoBox";
+import InfoBoxComponent from "./components/InfoBox";
+import ProgressButtonComponent from "./components/ProgressButton";
 
-export default InfoBox;
+export const InfoBox = InfoBoxComponent;
+export const ProgressButton = ProgressButtonComponent;

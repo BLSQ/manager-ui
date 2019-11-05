@@ -1,9 +1,9 @@
-import React from 'react'
-import theme from '../theme'
-import { ThemeProvider } from '@material-ui/styles'
-import InfoBox from '.'
+import React from "react";
+import theme from "../../theme";
+import { ThemeProvider } from "@material-ui/styles";
+import { InfoBox } from "../../index";
 
-export default { title: 'Info box' }
+export default { title: "Info box" };
 
 export const info = () => (
   <ThemeProvider theme={theme}>
@@ -14,7 +14,7 @@ export const info = () => (
       magnam?
     </InfoBox>
   </ThemeProvider>
-)
+);
 export const warning = () => (
   <ThemeProvider theme={theme}>
     <InfoBox>
@@ -24,7 +24,7 @@ export const warning = () => (
       magnam?
     </InfoBox>
   </ThemeProvider>
-)
+);
 export const error = () => (
   <ThemeProvider theme={theme}>
     <InfoBox>
@@ -34,4 +34,4 @@ export const error = () => (
       magnam?
     </InfoBox>
   </ThemeProvider>
-)
+);

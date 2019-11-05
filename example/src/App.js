@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import InfoBox from "manager-ui";
+import { InfoBox } from "manager-ui";
 import theme from "./theme";
 import { ThemeProvider } from "@material-ui/styles";
 
