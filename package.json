@@ -85,5 +85,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6"
+  }
 }

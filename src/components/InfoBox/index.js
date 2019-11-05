@@ -2,15 +2,16 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Icon from "@material-ui/icons/InfoTwoTone";
 import { Typography } from "@material-ui/core";
+import classNames from "classnames";
 
 const useStyles = makeStyles(theme => ({
   root: {
     background: "#efefef",
-    padding: 16,
+    padding: theme.spacing(2),
     paddingLeft: 0,
+    borderRadius: theme.spacing(2) / 2,
+    marginBottom: theme.spacing(1),
     display: "flex",
-    borderRadius: 4,
-    marginBottom: 16,
   },
   icon: {
     width: 50,
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 const InfoBox = props => {
   const classes = useStyles(props);
   return (
-    <div className={classes.root}>
+    <div className={classNames(classes.root, props.className)}>
       <Icon className={classes.icon} />
       <Typography
         variant="body2"
