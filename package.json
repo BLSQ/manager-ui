@@ -4,10 +4,11 @@
   "description": "Dhis2 manager apps common component library",
   "author": "blsq",
   "license": "MIT",
-  "repository": "blsq/manager-ui",
+  "repository": "BLSQ/manager-ui",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "private": false,
   "engines": {
     "node": ">=8",
     "npm": ">=5"
