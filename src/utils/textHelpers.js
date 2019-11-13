@@ -4,3 +4,11 @@ export const dasherize = text => {
     return p1.toLowerCase();
   });
 };
+
+export const getName = resource =>
+  resource
+    ? resource.alternateName ||
+      resource.name ||
+      resource.displayShortName ||
+      resource.displayName
+    : "";
