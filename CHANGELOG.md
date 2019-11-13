@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/BLSQ/manager-ui/compare/v1.0.0...v1.1.0) (2019-11-13)
+
+
+### Features
+
+* Add transfer list component ([11e9da7](https://github.com/BLSQ/manager-ui/commit/11e9da7ff2f6006dda006b9056e6c2c2caf1736f))
+
 # 1.0.0 (2019-11-13)
 
 
