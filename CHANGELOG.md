@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/BLSQ/manager-ui/compare/v1.2.0...v1.3.0) (2019-11-14)
+
+
+### Features
+
+* Trigger new version ([8111d32](https://github.com/BLSQ/manager-ui/commit/8111d324f97ff0d62a05ef38f0b6882b82746d3c))
+
 # [1.2.0](https://github.com/BLSQ/manager-ui/compare/v1.1.0...v1.2.0) (2019-11-14)
 
 
