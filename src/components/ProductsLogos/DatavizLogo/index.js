@@ -1,65 +1,46 @@
 import React from "react";
-import DatavizHorizontalColored from "../../../assets/products-logos/dataviz_horizontal_colored.svg";
-import DatavizVerticalColored from "../../../assets/products-logos/dataviz_vertical_colored.svg";
-import DatavizHorizontalWhite from "../../../assets/products-logos/dataviz_horizontal_white.svg";
-import DatavizVerticalWhite from "../../../assets/products-logos/dataviz_vertical_white.svg";
-import { makeStyles } from "@material-ui/styles";
+import { S3_FOLDER } from "../../../utils/constants";
+import ProductLogo from "../../ProductLogo";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundSize: "contain",
-  },
-}));
+const DatavizLogo = props => {
+  const DatavizHorizontalColored = `${S3_FOLDER}/products-logos/dataviz_horizontal_colored.svg`;
+  const DatavizVerticalColored = `${S3_FOLDER}/products-logos/dataviz_vertical_colored.svg`;
+  const DatavizHorizontalWhite = `${S3_FOLDER}/products-logos/dataviz_horizontal_white.svg`;
+  const DatavizVerticalWhite = `${S3_FOLDER}/products-logos/dataviz_vertical_white.svg`;
 
-const ProductLogo = props => {
-  const classes = useStyles();
   if (!props.white && props.variant == "horizontal") {
     return (
-      <img
+      <ProductLogo
         {...props}
         src={DatavizHorizontalColored}
         alt="Dataviz logo"
-        className={classes.root}
       />
     );
   }
 
   if (props.white && props.variant == "horizontal") {
     return (
-      <img
-        {...props}
-        src={DatavizHorizontalWhite}
-        alt="Dataviz logo"
-        className={classes.root}
-      />
+      <ProductLogo {...props} src={DatavizHorizontalWhite} alt="Dataviz logo" />
     );
   }
 
   if (!props.white && props.variant == "vertical") {
     return (
-      <img
-        {...props}
-        src={DatavizVerticalColored}
-        alt="Dataviz logo"
-        className={classes.root}
-      />
+      <ProductLogo {...props} src={DatavizVerticalColored} alt="Dataviz logo" />
     );
   }
 
   if (props.white && props.variant == "vertical") {
     return (
-      <img
-        {...props}
-        src={DatavizVerticalWhite}
-        alt="Dataviz logo"
-        className={classes.root}
-      />
+      <ProductLogo {...props} src={DatavizVerticalWhite} alt="Dataviz logo" />
     );
   }
 };
 
-ProductLogo.defaultProps = {
+DatavizLogo.defaultProps = {
   white: false,
   variant: "horizontal",
+  alt: "Dataviz Logo",
 };
-export default ProductLogo;
+
+export default DatavizLogo;

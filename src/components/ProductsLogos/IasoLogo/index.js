@@ -1,65 +1,34 @@
 import React from "react";
-import IasoHorizontalColored from "../../../assets/products-logos/iaso_horizontal_colored.svg";
-import IasoVerticalColored from "../../../assets/products-logos/iaso_vertical_colored.svg";
-import IasoHorizontalWhite from "../../../assets/products-logos/iaso_horizontal_white.svg";
-import IasoVerticalWhite from "../../../assets/products-logos/iaso_vertical_white.svg";
-import { makeStyles } from "@material-ui/styles";
+import { S3_FOLDER } from "../../../utils/constants";
+import ProductLogo from "../../ProductLogo";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundSize: "contain",
-  },
-}));
+const IasoLogo = props => {
+  const IasoHorizontalColored = `${S3_FOLDER}/products-logos/iaso_horizontal_colored.svg`;
+  const IasoVerticalColored = `${S3_FOLDER}/products-logos/iaso_vertical_colored.svg`;
+  const IasoHorizontalWhite = `${S3_FOLDER}/products-logos/iaso_horizontal_white.svg`;
+  const IasoVerticalWhite = `${S3_FOLDER}/products-logos/iaso_vertical_white.svg`;
 
-const ProductLogo = props => {
-  const classes = useStyles();
   if (!props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={IasoHorizontalColored}
-        alt="Iaso logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={IasoHorizontalColored} />;
   }
 
   if (props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={IasoHorizontalWhite}
-        alt="Iaso logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={IasoHorizontalWhite} />;
   }
 
   if (!props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={IasoVerticalColored}
-        alt="Iaso logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={IasoVerticalColored} />;
   }
 
   if (props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={IasoVerticalWhite}
-        alt="Iaso logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={IasoVerticalWhite} />;
   }
 };
 
-ProductLogo.defaultProps = {
+IasoLogo.defaultProps = {
   white: false,
   variant: "horizontal",
+  alt: "Iaso Logo",
 };
-export default ProductLogo;
+
+export default IasoLogo;

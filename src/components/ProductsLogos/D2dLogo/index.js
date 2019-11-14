@@ -1,65 +1,33 @@
 import React from "react";
-import D2dHorizontalColored from "../../../assets/products-logos/d2d_horizontal_colored.svg";
-import D2dVerticalColored from "../../../assets/products-logos/d2d_vertical_colored.svg";
-import D2dHorizontalWhite from "../../../assets/products-logos/d2d_horizontal_white.svg";
-import D2dVerticalWhite from "../../../assets/products-logos/d2d_vertical_white.svg";
-import { makeStyles } from "@material-ui/styles";
+import { S3_FOLDER } from "../../../utils/constants";
+import ProductLogo from "./../../ProductLogo";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundSize: "contain",
-  },
-}));
-
-const ProductLogo = props => {
-  const classes = useStyles();
+const D2dLogo = props => {
+  const D2dVerticalColored = `${S3_FOLDER}/products-logos/d2d_vertical_colored.svg`;
+  const D2dHorizontalColored = `${S3_FOLDER}/products-logos/d2d_horizontal_colored.svg`;
+  const D2dHorizontalWhite = `${S3_FOLDER}/products-logos/d2d_horizontal_white.svg`;
+  const D2dVerticalWhite = `${S3_FOLDER}/products-logos/d2d_vertical_white.svg`;
   if (!props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={D2dHorizontalColored}
-        alt="D2d logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={D2dHorizontalColored} />;
   }
 
   if (props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={D2dHorizontalWhite}
-        alt="D2d logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={D2dHorizontalWhite} />;
   }
 
   if (!props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={D2dVerticalColored}
-        alt="D2d logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={D2dVerticalColored} />;
   }
 
   if (props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={D2dVerticalWhite}
-        alt="D2d logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={D2dVerticalWhite} />;
   }
 };
 
-ProductLogo.defaultProps = {
+D2dLogo.defaultProps = {
   white: false,
   variant: "horizontal",
+  alt: "D2d Logo",
 };
-export default ProductLogo;
+
+export default D2dLogo;

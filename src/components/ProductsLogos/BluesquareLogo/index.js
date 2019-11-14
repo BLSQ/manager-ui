@@ -1,66 +1,36 @@
 import React from "react";
-import BluesquareHorizontalColored from "../../../assets/products-logos/bluesquare_horizontal_colored.svg";
-import BluesquareVerticalColored from "../../../assets/products-logos/bluesquare_vertical_colored.svg";
-import BluesquareHorizontalWhite from "../../../assets/products-logos/bluesquare_horizontal_white.svg";
-import BluesquareVerticalWhite from "../../../assets/products-logos/bluesquare_vertical_white.svg";
-import { makeStyles } from "@material-ui/styles";
+import { S3_FOLDER } from "../../../utils/constants";
+import ProductLogo from "../../ProductLogo";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    backgroundSize: "contain",
-  },
-}));
-
-const ProductLogo = props => {
-  const classes = useStyles();
+const BluesquareLogo = props => {
+  const BluesquareHorizontalColored = `${S3_FOLDER}/products-logos/bluesquare_horizontal_colored.svg`;
+  const BluesquareVerticalColored = `${S3_FOLDER}/products-logos/bluesquare_vertical_colored.svg`;
+  const BluesquareHorizontalWhite = `${S3_FOLDER}/products-logos/bluesquare_horizontal_white.svg`;
+  const BluesquareVerticalWhite = `${S3_FOLDER}/products-logos/bluesquare_vertical_white.svg`;
 
   if (!props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={BluesquareHorizontalColored}
-        alt="Bluesquare logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={BluesquareHorizontalColored} />;
   }
 
   if (!!props.white && props.variant == "horizontal") {
-    return (
-      <img
-        {...props}
-        src={BluesquareHorizontalWhite}
-        alt="Bluesquare logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={BluesquareHorizontalWhite} />;
   }
 
   if (!props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={BluesquareVerticalColored}
-        alt="Bluesquare logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={BluesquareVerticalColored} />;
   }
 
   if (!!props.white && props.variant == "vertical") {
-    return (
-      <img
-        {...props}
-        src={BluesquareVerticalWhite}
-        alt="Bluesquare logo"
-        className={classes.root}
-      />
-    );
+    return <ProductLogo {...props} src={BluesquareVerticalWhite} />;
   }
+
+  return <p>aunirs</p>;
 };
 
-ProductLogo.defaultProps = {
+BluesquareLogo.defaultProps = {
   white: false,
   variant: "horizontal",
+  alt: "Bluesquare Logo",
 };
-export default ProductLogo;
+
+export default BluesquareLogo;

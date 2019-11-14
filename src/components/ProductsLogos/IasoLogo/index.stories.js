@@ -1,19 +1,17 @@
 import React, { Fragment } from "react";
 import { storiesOf } from "@storybook/react";
-import BluesquareLogo from "./index";
+import IasoLogo from "./index";
 
-const stories = storiesOf("Branding|Logos.Iaso logo", BluesquareLogo);
+const stories = storiesOf("Branding|Logos.Iaso logo", IasoLogo);
 const storyStyle = {
   width: 200,
 };
 
-stories.add("Horizontal colored", () => <BluesquareLogo style={storyStyle} />);
-stories.add("Horizontal white", () => (
-  <BluesquareLogo white style={storyStyle} />
-));
+stories.add("Horizontal colored", () => <IasoLogo style={storyStyle} />);
+stories.add("Horizontal white", () => <IasoLogo white style={storyStyle} />);
 stories.add("Vertical colored", () => (
-  <BluesquareLogo variant="vertical" style={storyStyle} />
+  <IasoLogo variant="vertical" style={storyStyle} />
 ));
 stories.add("Vertical white", () => (
-  <BluesquareLogo white variant="vertical" style={storyStyle} />
+  <IasoLogo white variant="vertical" style={storyStyle} />
 ));
