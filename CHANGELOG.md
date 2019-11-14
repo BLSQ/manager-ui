@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/BLSQ/manager-ui/compare/v1.1.0...v1.2.0) (2019-11-14)
+
+
+### Features
+
+* Add Bluesquare Product logos ([7a6a5a7](https://github.com/BLSQ/manager-ui/commit/7a6a5a7a2f50792bda1d0aedb9a7013903370bba))
+
 # [1.1.0](https://github.com/BLSQ/manager-ui/compare/v1.0.0...v1.1.0) (2019-11-13)
 
 
