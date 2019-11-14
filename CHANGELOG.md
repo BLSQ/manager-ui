@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/BLSQ/manager-ui/compare/v1.3.0...v1.4.0) (2019-11-14)
+
+
+### Features
+
+* Move all logos to s3 to avoid babel loader and keep bundle small ([937a7cb](https://github.com/BLSQ/manager-ui/commit/937a7cb2318dc06cc950b73d9077bcd7988b098f))
+
 # [1.3.0](https://github.com/BLSQ/manager-ui/compare/v1.2.0...v1.3.0) (2019-11-14)
 
 
