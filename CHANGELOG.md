@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/BLSQ/manager-ui/compare/v1.4.0...v1.5.0) (2019-11-15)
+
+
+### Bug Fixes
+
+* Typo for transfert list component ([14c3d77](https://github.com/BLSQ/manager-ui/commit/14c3d779e744dc6f75d5d7ac9d4cd2e8e406ebc6))
+
+
+### Features
+
+* Add Bluesquare help avatar ([88a2c91](https://github.com/BLSQ/manager-ui/commit/88a2c910bfe10eb794ab31467de9b1bcff8e8e56))
+
 # [1.4.0](https://github.com/BLSQ/manager-ui/compare/v1.3.0...v1.4.0) (2019-11-14)
 
 
