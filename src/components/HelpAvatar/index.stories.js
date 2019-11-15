@@ -10,5 +10,7 @@ const stories = storiesOf("Help avatar", HelpAvatar);
 stories.addDecorator(jsxDecorator).addDecorator(muiTheme([theme]));
 
 stories
-  .add("Happy", () => <HelpAvatar />)
-  .add("Sad", () => <HelpAvatar variant="sad" />);
+  .add("Man Happy", () => <HelpAvatar gender="male" />)
+  .add("Man Sad", () => <HelpAvatar gender="male" variant="sad" />)
+  .add("Women Happy", () => <HelpAvatar />)
+  .add("Women Sad", () => <HelpAvatar variant="sad" />);
