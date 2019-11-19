@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/BLSQ/manager-ui/compare/v1.5.0...v1.6.0) (2019-11-19)
+
+
+### Features
+
+* Add female avatar ([27a254f](https://github.com/BLSQ/manager-ui/commit/27a254f5b2a997cfb10027e5e8dd0fb9f1600990))
+
 # [1.5.0](https://github.com/BLSQ/manager-ui/compare/v1.4.0...v1.5.0) (2019-11-15)
 
 
