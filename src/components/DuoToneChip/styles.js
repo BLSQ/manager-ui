@@ -11,10 +11,10 @@ const paddingCalculator = props => {
   return 2;
 };
 
-export default makeStyles(theme => ({
+export default makeStyles(() => ({
   avatar: props => ({
     backgroundColor: props.color === undefined ? "#ccc" : props.color,
-    marginLeft: props.variant === "outlined" ? 4 : 0,
+    marginLeft: `${props.variant === "outlined" ? 4 : 0} !important`,
     opacity: props.variant === "outlined" ? 0.9 : 1,
     padding: paddingCalculator(props),
     borderRadius: "50%",
