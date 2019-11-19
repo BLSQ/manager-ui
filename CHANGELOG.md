@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/BLSQ/manager-ui/compare/v1.6.0...v1.6.1) (2019-11-19)
+
+
+### Bug Fixes
+
+* Fix dual tone chip icon margin ([cc5a174](https://github.com/BLSQ/manager-ui/commit/cc5a1743fe4ab0e837a7a6e0cc27c710e2fa2bcc))
+
 # [1.6.0](https://github.com/BLSQ/manager-ui/compare/v1.5.0...v1.6.0) (2019-11-19)
 
 
