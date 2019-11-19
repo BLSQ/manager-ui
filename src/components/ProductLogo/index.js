@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
+import classNames from "classnames";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -9,7 +10,10 @@ const useStyles = makeStyles(() => ({
 
 const ProductLogo = props => {
   const classes = useStyles();
-  return <img {...props} className={classes.root} />;
+  const { className, ...rest } = props;
+  return (
+    <img {...rest} className={classNames(classes.root, props.className)} />
+  );
 };
 
 ProductLogo.defaultProps = {
