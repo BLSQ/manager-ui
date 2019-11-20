@@ -109,6 +109,7 @@
     "dist"
   ],
   "dependencies": {
+    "@use-hook/use-cookie": "^0.1.4",
     "classnames": "^2.2.6"
   }
 }
