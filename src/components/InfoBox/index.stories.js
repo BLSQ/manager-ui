@@ -5,9 +5,19 @@ import { InfoBox } from "../../index";
 
 export default { title: "Info box" };
 
-export const info = () => (
+export const dismissable = () => (
   <ThemeProvider theme={theme}>
     <InfoBox name="demo-example">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam
+      sequi tenetur! Sit odio error repellat atque voluptas cum quibusdam
+      facilis, inventore quod odit eligendi deleniti modi ducimus assumenda
+      magnam?
+    </InfoBox>
+  </ThemeProvider>
+);
+export const nonDismissable = () => (
+  <ThemeProvider theme={theme}>
+    <InfoBox name="demo-example" dismissable={false}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam
       sequi tenetur! Sit odio error repellat atque voluptas cum quibusdam
       facilis, inventore quod odit eligendi deleniti modi ducimus assumenda

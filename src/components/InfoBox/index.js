@@ -38,7 +38,7 @@ const InfoBox = props => {
   const cookieName = `blsq-info-box-hesabu-${props.name}`;
   const [cookies, setCookie] = useCookies([cookieName]);
 
-  if (props.dismissable && !cookies[cookieName]) {
+  if (!props.dismissable || !cookies[cookieName]) {
     return (
       <div className={classNames(classes.root, props.className)}>
         <Icon className={classes.icon} />
@@ -50,13 +50,15 @@ const InfoBox = props => {
         >
           {props.children || props.text}
         </Typography>
-        <IconButton
-          size="small"
-          className={classes.closeIcon}
-          onClick={() => setCookie(cookieName, true)}
-        >
-          <CloseIcon className={classes.smallIcon} />
-        </IconButton>
+        {props.dismissable && (
+          <IconButton
+            size="small"
+            className={classes.closeIcon}
+            onClick={() => setCookie(cookieName, true)}
+          >
+            <CloseIcon className={classes.smallIcon} />
+          </IconButton>
+        )}
       </div>
     );
   } else {
