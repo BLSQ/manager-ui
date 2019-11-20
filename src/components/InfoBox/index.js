@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Typography, IconButton } from "@material-ui/core";
 import Icon from "@material-ui/icons/InfoTwoTone";
 import CloseIcon from "@material-ui/icons/Close";
 import classNames from "classnames";
-import { useCookie } from "@use-hook/use-cookie";
 import PropTypes from "prop-types";
+import { useCookies } from "react-cookie";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,12 +35,10 @@ const useStyles = makeStyles(theme => ({
 
 const InfoBox = props => {
   const classes = useStyles(props);
-  const [display, setDisplay] = useCookie(
-    `blsq-info-box-hesabu-${props.name}`,
-    "true",
-  );
+  const cookieName = `blsq-info-box-hesabu-${props.name}`;
+  const [cookies, setCookie] = useCookies([cookieName]);
 
-  if (display === "true") {
+  if (props.dismissable && !cookies[cookieName]) {
     return (
       <div className={classNames(classes.root, props.className)}>
         <Icon className={classes.icon} />
@@ -55,7 +53,7 @@ const InfoBox = props => {
         <IconButton
           size="small"
           className={classes.closeIcon}
-          onClick={() => setDisplay(false)}
+          onClick={() => setCookie(cookieName, true)}
         >
           <CloseIcon className={classes.smallIcon} />
         </IconButton>
@@ -70,6 +68,11 @@ InfoBox.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   text: PropTypes.string,
+  dismissable: PropTypes.bool,
+};
+
+InfoBox.defaultProps = {
+  dismissable: true,
 };
 
 export default InfoBox;
