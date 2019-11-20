@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/BLSQ/manager-ui/compare/v1.6.2...v1.6.3) (2019-11-20)
+
+
+### Bug Fixes
+
+* **pencil:** Build fix ([f2d4f12](https://github.com/BLSQ/manager-ui/commit/f2d4f12a0a1aec23c3deb992bdba9c2c7a248710))
+
 ## [1.6.2](https://github.com/BLSQ/manager-ui/compare/v1.6.1...v1.6.2) (2019-11-20)
 
 
