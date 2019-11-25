@@ -11,6 +11,7 @@ import InfoBoxComponent from "./components/InfoBox";
 import KeyNumberBlockComponent from "./components/KeyNumberBlock";
 import ProgressButtonComponent from "./components/ProgressButton";
 import TransferListComponent from "./components/TransferList";
+import NestedAccordionMenuComponent from "./components/NestedAccordionMenu";
 
 export const BluesquareLogo = BluesquareLogoComponent;
 export const D2dLogo = D2dLogoComponent;
@@ -25,3 +26,4 @@ export const InfoBox = InfoBoxComponent;
 export const KeyNumberBlock = KeyNumberBlockComponent;
 export const ProgressButton = ProgressButtonComponent;
 export const TransferList = TransferListComponent;
+export const NestedAccordionMenu = NestedAccordionMenuComponent;
