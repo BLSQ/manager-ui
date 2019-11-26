@@ -6,26 +6,8 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Collapse from "@material-ui/core/Collapse";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles } from "@material-ui/core/styles";
-const useStyles = makeStyles(theme => ({
-  sidebarItem: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  sidebarItemContent: {
-    whiteSpace: "nowrap",
-    textOverflow: "ellipsis",
-    overflow: "hidden",
-    display: "flex",
-    alignItems: "center",
-    width: "100%",
-  },
-  collapse: {
-    background: "#f4f1f1",
-  },
-}));
-function MenuItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
+import useStyles from "./styles";
+function MenuItem({ depth = 0, expanded, item, ...rest }) {
   const classes = useStyles();
   const [collapsed, setCollapsed] = useState(true);
   const { route, name, items, Icon } = item;
@@ -37,9 +19,6 @@ function MenuItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
   function onClick(e) {
     if (Array.isArray(items)) {
       toggleCollapse();
-    }
-    if (onClickProp) {
-      onClickProp(e, item);
     }
   }
 
@@ -64,7 +43,7 @@ function MenuItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
         to={route}
       >
         <div
-          style={{ paddingLeft: depth * depthStep }}
+          style={{ paddingLeft: depth * 10 }}
           className={classes.sidebarItemContent}
         >
           <ListItemIcon>
@@ -85,11 +64,7 @@ function MenuItem({ depthStep = 10, depth = 0, expanded, item, ...rest }) {
             {items &&
               items.map((subItem, index) => (
                 <Fragment key={`${subItem.name}${index}`}>
-                  <MenuItem
-                    depth={depth + 1}
-                    depthStep={depthStep}
-                    item={subItem}
-                  />
+                  <MenuItem depth={depth + 1} item={subItem} />
                 </Fragment>
               ))}
           </List>

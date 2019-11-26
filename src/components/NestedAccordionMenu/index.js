@@ -1,8 +1,30 @@
 import React from "react";
 import List from "@material-ui/core/List";
+import MenuItem from "./MenuItems";
 import { makeStyles } from "@material-ui/core/styles";
-import Menu from "./Menu";
-
-export default function NestedList(props) {
-  return <Menu items={props.items} depthStep={10} depth={1} fontsize={25} />;
+const useStyles = makeStyles(theme => ({
+  sidebar: {
+    width: "100%",
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+function Menu({ items, depth, expanded, fontsize }) {
+  const classes = useStyles();
+  return (
+    <div className={classes.sidebar}>
+      <List>
+        {items &&
+          items.map((menuItem, index) => (
+            <MenuItem
+              key={`${menuItem.name}${index}`}
+              depth={depth}
+              expanded={expanded}
+              item={menuItem}
+            />
+          ))}
+      </List>
+    </div>
+  );
 }
+
+export default Menu;

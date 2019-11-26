@@ -51,7 +51,7 @@ const nestedItems = [
   { name: "Category Cobos", Icon: ShuffleIcon, route: "" },
   { name: "Data Elements", Icon: ShuffleIcon, route: "" },
   { name: "Data Element Groups", Icon: ShuffleIcon, route: "" },
-  { name: "Data Sets", Icon: ShuffleIcon, route: "" },
+  { name: "Data Sets", route: "" },
 ];
 
 const itemsCoreModules = [
@@ -64,6 +64,12 @@ const itemsCoreModules = [
     name: "SNIS REPLICA to HIVDR",
     items: nestedItems,
     Icon: InboxIcon,
+  },
+  ,
+  {
+    name: "DRC PROJECT",
+    Icon: InboxIcon,
+    route: "project/5/schedulers",
   },
 ];
 // Knobs for React props
