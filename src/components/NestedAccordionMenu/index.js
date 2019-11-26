@@ -11,19 +11,17 @@ const useStyles = makeStyles(theme => ({
 function Menu({ items, depth, expanded, fontsize }) {
   const classes = useStyles();
   return (
-    <div className={classes.sidebar}>
-      <List>
-        {items &&
-          items.map((menuItem, index) => (
-            <MenuItem
-              key={`${menuItem.name}${index}`}
-              depth={depth}
-              expanded={expanded}
-              item={menuItem}
-            />
-          ))}
-      </List>
-    </div>
+    <List className={classes.sidebar}>
+      {items &&
+        items.map((menuItem, index) => (
+          <MenuItem
+            key={`${menuItem.name}${index}`}
+            depth={depth}
+            expanded={expanded}
+            item={menuItem}
+          />
+        ))}
+    </List>
   );
 }
 
