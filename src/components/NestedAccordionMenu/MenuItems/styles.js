@@ -6,14 +6,15 @@ export default makeStyles(theme => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  sidebarItemContent: {
+  sidebarItemContent: props => ({
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
     width: "100%",
-  },
+    paddingLeft: props.depth * 10,
+  }),
   collapse: {
     background: "#bdbcbb",
   },

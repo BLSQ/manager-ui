@@ -8,7 +8,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import useStyles from "./styles";
 function MenuItem({ depth = 0, expanded, item, ...rest }) {
-  const classes = useStyles();
+  const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
   const { route, name, items, Icon } = item;
 
@@ -42,10 +42,7 @@ function MenuItem({ depth = 0, expanded, item, ...rest }) {
         {...rest}
         to={route}
       >
-        <div
-          style={{ paddingLeft: depth * 10 }}
-          className={classes.sidebarItemContent}
-        >
+        <div className={classes.sidebarItemContent}>
           <ListItemIcon>
             {Icon && <Icon className={classes.sidebarItemIcon} />}
           </ListItemIcon>
