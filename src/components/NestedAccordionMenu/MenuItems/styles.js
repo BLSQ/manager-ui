@@ -16,6 +16,12 @@ export default makeStyles(theme => ({
     paddingLeft: props.depth * 10,
   }),
   collapse: {
-    background: "#bdbcbb",
+    background: "#dcdbdc",
+  },
+  itemhighlighted: {
+    color: "red",
+  },
+  itemNohighlighted: {
+    color: "black",
   },
 }));

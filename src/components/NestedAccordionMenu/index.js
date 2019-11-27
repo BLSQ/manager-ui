@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
-function Menu({ items, depth, expanded, fontsize }) {
+function Menu({ items, depth, expanded, currentPath, fontsize }) {
   const classes = useStyles();
   return (
     <List className={classes.sidebar}>
@@ -19,6 +19,7 @@ function Menu({ items, depth, expanded, fontsize }) {
             depth={depth}
             expanded={expanded}
             item={menuItem}
+            currentPath={currentPath}
           />
         ))}
     </List>

@@ -7,11 +7,13 @@ import Collapse from "@material-ui/core/Collapse";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import useStyles from "./styles";
-function MenuItem({ depth = 0, expanded, item, ...rest }) {
+function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
   const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
+  const [highlightcolor, setHighlightcolor] = useState(false);
   const { route, name, items, Icon } = item;
-
+  const mainroute = rest.mainroute;
+  let highlightclass = "itemNohighlighted";
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
   }
@@ -20,6 +22,17 @@ function MenuItem({ depth = 0, expanded, item, ...rest }) {
     if (Array.isArray(items)) {
       toggleCollapse();
     }
+
+    if (currentPath === routeVal(mainroute, route)) {
+      if (!highlightcolor) {
+        setHighlightcolor(prevValue => !prevValue);
+      }
+    } else {
+      setHighlightcolor(prevValue => prevValue);
+    }
+  }
+  function routeVal(mainroute, route) {
+    return mainroute ? mainroute + route : route;
   }
 
   let expandIcon;
@@ -31,25 +44,31 @@ function MenuItem({ depth = 0, expanded, item, ...rest }) {
       <ExpandMoreIcon className={classes.sidebarItemExpandArrow} />
     );
   }
-
+  highlightclass = highlightcolor ? "itemhighlighted" : "itemNohighlighted";
   return (
     <Fragment>
-      <ListItem
-        className={classes.sidebarItem}
-        onClick={onClick}
-        button
-        dense
-        {...rest}
-        to={route}
+      <div
+        className={
+          highlightcolor ? classes.itemhighlighted : classes.itemNohighlighted
+        }
       >
-        <div className={classes.sidebarItemContent}>
-          <ListItemIcon>
-            {Icon && <Icon className={classes.sidebarItemIcon} />}
-          </ListItemIcon>
-          <ListItemText primary={name} />
-        </div>
-        {expandIcon}
-      </ListItem>
+        <ListItem
+          className={classes.sidebarItem}
+          onClick={onClick}
+          button
+          dense
+          {...rest}
+          to={routeVal(rest.mainroute, route)}
+        >
+          <div className={classes.sidebarItemContent}>
+            <ListItemIcon>
+              {Icon && <Icon className={classes.sidebarItemIcon} />}
+            </ListItemIcon>
+            <ListItemText primary={name} />
+          </div>
+          {expandIcon}
+        </ListItem>
+      </div>
       <Collapse
         className={classes.collapse}
         in={!collapsed}
@@ -61,7 +80,12 @@ function MenuItem({ depth = 0, expanded, item, ...rest }) {
             {items &&
               items.map((subItem, index) => (
                 <Fragment key={`${subItem.name}${index}`}>
-                  <MenuItem depth={depth + 1} item={subItem} />
+                  <MenuItem
+                    depth={depth + 1}
+                    item={subItem}
+                    mainroute={routeVal(rest.mainroute, route)}
+                    currentPath={currentPath}
+                  />
                 </Fragment>
               ))}
           </List>

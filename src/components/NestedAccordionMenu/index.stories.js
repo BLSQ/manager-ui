@@ -26,10 +26,12 @@ const subItems = [
   {
     name: "Sub Journal one",
     Icon: InboxIcon,
+    route: "/sub_journal_one",
   },
   {
     name: "Sub Journal two",
     Icon: InboxIcon,
+    route: "/sub_journal_one",
   },
 ];
 const nestedItems = [
@@ -37,21 +39,26 @@ const nestedItems = [
     name: "Journal",
     Icon: ListIcon,
     items: subItems,
+    route: "/journal",
   },
-  { name: "Schedulers", Icon: ScheduleIcon, route: "project/5/schedulers" },
-  { name: "General", Icon: SettingsIcon, route: "project/5/schedulers" },
+  { name: "Schedulers", Icon: ScheduleIcon, route: "/schedulers" },
+  { name: "General", Icon: SettingsIcon, route: "/General" },
   {
     name: "Org. Units",
     Icon: ShuffleIcon,
-    route: "project/5/organisationunits",
+    route: "/organisationunits",
   },
-  { name: "Org. Unit Groups", Icon: ShuffleIcon, route: "" },
-  { name: "Category Options", Icon: ShuffleIcon, route: "" },
-  { name: "Categories", Icon: ShuffleIcon, route: "" },
-  { name: "Category Cobos", Icon: ShuffleIcon, route: "" },
-  { name: "Data Elements", Icon: ShuffleIcon, route: "" },
-  { name: "Data Element Groups", Icon: ShuffleIcon, route: "" },
-  { name: "Data Sets", route: "" },
+  { name: "Org. Unit Groups", Icon: ShuffleIcon, route: "/org_unit_groups" },
+  { name: "Category Options", Icon: ShuffleIcon, route: "/category_options" },
+  { name: "Categories", Icon: ShuffleIcon, route: "/categories" },
+  { name: "Category Cobos", Icon: ShuffleIcon, route: "/category_combos" },
+  { name: "Data Elements", Icon: ShuffleIcon, route: "/data_elements" },
+  {
+    name: "Data Element Groups",
+    Icon: ShuffleIcon,
+    route: "/data_element_groups",
+  },
+  { name: "Data Sets", route: "/data_sets" },
 ];
 
 const itemsCoreModules = [
@@ -59,18 +66,25 @@ const itemsCoreModules = [
     name: "CordaidSIS to HIVDR",
     items: nestedItems,
     Icon: InboxIcon,
+    route: "project/5",
   },
   {
     name: "SNIS REPLICA to HIVDR",
     items: nestedItems,
     Icon: InboxIcon,
+    route: "project/6",
   },
   ,
   {
     name: "DRC PROJECT",
     Icon: InboxIcon,
-    route: "project/5/schedulers",
+    route: "project/7",
   },
 ];
 // Knobs for React props
-stories.add("Default", () => <NestedAccordionMenu items={itemsCoreModules} />);
+stories.add("Default", () => (
+  <NestedAccordionMenu
+    items={itemsCoreModules}
+    currentPath="project/6/journal/sub_journal_one"
+  />
+));
