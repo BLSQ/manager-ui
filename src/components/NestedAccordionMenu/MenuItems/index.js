@@ -12,7 +12,6 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
   const [collapsed, setCollapsed] = useState(true);
   const [highlightcolor, setHighlightcolor] = useState(false);
   const { route, name, items, Icon } = item;
-  let highlightclass = "itemNohighlighted";
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
   }
@@ -40,7 +39,6 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
       <ExpandMoreIcon className={classes.sidebarItemExpandArrow} />
     );
   }
-  highlightclass = highlightcolor ? "itemhighlighted" : "itemNohighlighted";
   return (
     <Fragment>
       <div
