@@ -26,7 +26,7 @@ const subItems = [
   {
     name: "Sub Journal one",
     Icon: InboxIcon,
-    route: "/sub_journal_one",
+    route: "project/6/journal/sub_journal_one",
   },
   {
     name: "Sub Journal two",

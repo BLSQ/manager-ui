@@ -12,7 +12,6 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
   const [collapsed, setCollapsed] = useState(true);
   const [highlightcolor, setHighlightcolor] = useState(false);
   const { route, name, items, Icon } = item;
-  const mainroute = rest.mainroute;
   let highlightclass = "itemNohighlighted";
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
@@ -23,16 +22,13 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
       toggleCollapse();
     }
 
-    if (currentPath === routeVal(mainroute, route)) {
+    if (currentPath === route) {
       if (!highlightcolor) {
         setHighlightcolor(prevValue => !prevValue);
       }
     } else {
       setHighlightcolor(prevValue => prevValue);
     }
-  }
-  function routeVal(mainroute, route) {
-    return mainroute ? mainroute + route : route;
   }
 
   let expandIcon;
@@ -58,7 +54,7 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
           button
           dense
           {...rest}
-          to={routeVal(rest.mainroute, route)}
+          to={route}
         >
           <div className={classes.sidebarItemContent}>
             <ListItemIcon>
@@ -83,7 +79,6 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
                   <MenuItem
                     depth={depth + 1}
                     item={subItem}
-                    mainroute={routeVal(rest.mainroute, route)}
                     currentPath={currentPath}
                   />
                 </Fragment>
