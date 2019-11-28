@@ -112,19 +112,39 @@ const itemsCoreModulesParentHighlighted = [
     Icon: InboxIcon,
   },
 ];
-// Knobs for React props
 
-stories.add("Default", () => (
+const simpleNonNestedItems = [
+  {
+    name: "CordaidSIS to HIVDR",
+    Icon: InboxIcon,
+    to: "project/6/journal/sub_journal_one",
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    Icon: InboxIcon,
+    to: "project/7",
+  },
+];
+
+stories.add("Simple non nested", () => (
   <NestedAccordionMenu
-    items={itemsCoreModules}
+    items={simpleNonNestedItems}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />
 ));
 
-stories.add("Parent hightlighted", () => (
+stories.add("Nested parent as current", () => (
   <NestedAccordionMenu
     items={itemsCoreModulesParentHighlighted}
+    currentPath="project/6/journal/sub_journal_one"
+    link={Link}
+  />
+));
+
+stories.add("Nested child as current", () => (
+  <NestedAccordionMenu
+    items={itemsCoreModules}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />

@@ -9,15 +9,17 @@ import ListItemText from "@material-ui/core/ListItemText";
 import classNames from "classnames";
 import useStyles from "./styles";
 function MenuItem(props) {
-  const { to, name, items, Icon, depth, expanded, currentPath } = props;
+  const { to, name, items, Icon, depth, currentPath } = props;
   const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
   const hasSubItems = Array.isArray(items);
+  let found = false;
+  let expandIcon;
+
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
   }
 
-  let found = false;
   function isChildrenActive(subItems) {
     subItems.forEach(element => {
       if (element.to === currentPath) {
@@ -31,9 +33,9 @@ function MenuItem(props) {
   }
 
   const active = to === currentPath && !hasSubItems;
-  const itemsTofilt = items;
-  const activeSubParent = items && isChildrenActive(items);
-  let expandIcon;
+  const activeSubParent = hasSubItems && isChildrenActive(items);
+
+  console.log(to, active);
 
   if (hasSubItems && items.length) {
     expandIcon = !collapsed ? (
@@ -53,10 +55,10 @@ function MenuItem(props) {
         component={hasSubItems ? undefined : LinkComponent}
         classes={{
           button: classNames({
-            [classes.activeColor]: active,
+            [classes.activeColor]: active && !hasSubItems && depth,
             [classes.activeBackground]:
-              (!hasSubItems && !depth) ||
-              (hasSubItems && collapsed && activeSubParent),
+              (active && !hasSubItems && !depth) ||
+              (hasSubItems && collapsed && activeSubParent && !depth),
           }),
         }}
       >
