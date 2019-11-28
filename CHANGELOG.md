@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/BLSQ/manager-ui/compare/v1.7.0...v1.7.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* add more stories for the accordion menu ([659dc88](https://github.com/BLSQ/manager-ui/commit/659dc88eb97bc0bd93f294e74c08e428540d576d))
+
 # [1.7.0](https://github.com/BLSQ/manager-ui/compare/v1.6.3...v1.7.0) (2019-11-28)
 
 
