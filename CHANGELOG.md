@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/BLSQ/manager-ui/compare/v1.7.1...v1.7.2) (2019-11-28)
+
+
+### Bug Fixes
+
+* Colors for current items in nested menu ([98da488](https://github.com/BLSQ/manager-ui/commit/98da488de12e4b5dbc5cf53bda545415735505c1))
+
 ## [1.7.1](https://github.com/BLSQ/manager-ui/compare/v1.7.0...v1.7.1) (2019-11-28)
 
 
