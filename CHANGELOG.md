@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/BLSQ/manager-ui/compare/v1.6.3...v1.7.0) (2019-11-28)
+
+
+### Features
+
+* Add nested accordion menu ([#5](https://github.com/BLSQ/manager-ui/issues/5)) ([f94683d](https://github.com/BLSQ/manager-ui/commit/f94683d8dd4e22ff86f78a64679386a946ebcdf3))
+
 ## [1.6.3](https://github.com/BLSQ/manager-ui/compare/v1.6.2...v1.6.3) (2019-11-20)
 
 
