@@ -90,17 +90,6 @@ const nestedItemsSecond = [
 
 const itemsCoreModules = [
   {
-    name: "CordaidSIS to HIVDR",
-    items: nestedItems,
-    Icon: InboxIcon,
-  },
-  {
-    name: "SNIS REPLICA to HIVDR",
-    items: nestedItems,
-    Icon: InboxIcon,
-  },
-
-  {
     name: "DRC PROJECT",
     Icon: InboxIcon,
     to: "project/6/journal/sub_journal_one",
@@ -111,12 +100,31 @@ const itemsCoreModules = [
     Icon: InboxIcon,
   },
 ];
-
+const itemsCoreModulesParentHighlighted = [
+  {
+    name: "CordaidSIS to HIVDR",
+    items: nestedItems,
+    Icon: InboxIcon,
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    items: nestedItemsSecond,
+    Icon: InboxIcon,
+  },
+];
 // Knobs for React props
 
 stories.add("Default", () => (
   <NestedAccordionMenu
     items={itemsCoreModules}
+    currentPath="project/6/journal/sub_journal_one"
+    link={Link}
+  />
+));
+
+stories.add("Parent hightlighted", () => (
+  <NestedAccordionMenu
+    items={itemsCoreModulesParentHighlighted}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />
