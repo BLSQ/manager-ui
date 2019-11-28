@@ -13,15 +13,15 @@ export default makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     width: "100%",
-    paddingLeft: props.depth * 10,
+    paddingLeft: props.depth * theme.spacing(4),
   }),
   collapse: {
-    background: "#dcdbdc",
+    background: "#f7f7f7",
   },
-  itemhighlighted: {
-    color: "red",
+  activeColor: {
+    color: theme.palette.primary.main,
   },
-  itemNohighlighted: {
-    color: "black",
+  activeBackground: {
+    background: "#efefef",
   },
 }));

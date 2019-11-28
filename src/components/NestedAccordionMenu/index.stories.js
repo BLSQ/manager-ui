@@ -21,17 +21,24 @@ stories
   .addDecorator(withKnobs)
   .addDecorator(jsxDecorator)
   .addDecorator(muiTheme([theme]));
-
+function Link(props) {
+  const { to, children, ...rest } = props;
+  return (
+    <a href={to} {...props}>
+      {children}
+    </a>
+  );
+}
 const subItems = [
   {
     name: "Sub Journal one",
     Icon: InboxIcon,
-    route: "project/6/journal/sub_journal_one",
+    to: "project/6/journal/sub_journal_one",
   },
   {
     name: "Sub Journal two",
     Icon: InboxIcon,
-    route: "/sub_journal_one",
+    to: "/sub_journal_one",
   },
 ];
 const nestedItems = [
@@ -39,26 +46,46 @@ const nestedItems = [
     name: "Journal",
     Icon: ListIcon,
     items: subItems,
-    route: "/journal",
   },
-  { name: "Schedulers", Icon: ScheduleIcon, route: "/schedulers" },
-  { name: "General", Icon: SettingsIcon, route: "/General" },
+  { name: "Schedulers", Icon: ScheduleIcon, to: "/schedulers" },
+  { name: "General", Icon: SettingsIcon, to: "/General" },
   {
     name: "Org. Units",
     Icon: ShuffleIcon,
-    route: "/organisationunits",
+    to: "/organisationunits",
   },
-  { name: "Org. Unit Groups", Icon: ShuffleIcon, route: "/org_unit_groups" },
-  { name: "Category Options", Icon: ShuffleIcon, route: "/category_options" },
-  { name: "Categories", Icon: ShuffleIcon, route: "/categories" },
-  { name: "Category Cobos", Icon: ShuffleIcon, route: "/category_combos" },
-  { name: "Data Elements", Icon: ShuffleIcon, route: "/data_elements" },
+  { name: "Org. Unit Groups", Icon: ShuffleIcon, to: "/org_unit_groups" },
+  { name: "Category Options", Icon: ShuffleIcon, to: "/category_options" },
+  { name: "Categories", Icon: ShuffleIcon, to: "/categories" },
+  { name: "Category Cobos", Icon: ShuffleIcon, to: "/category_combos" },
+  { name: "Data Elements", Icon: ShuffleIcon, to: "/data_elements" },
   {
     name: "Data Element Groups",
     Icon: ShuffleIcon,
-    route: "/data_element_groups",
+    to: "/data_element_groups",
   },
-  { name: "Data Sets", route: "/data_sets" },
+  { name: "Data Sets", to: "/data_sets" },
+];
+
+const nestedItemsSecond = [
+  { name: "Schedulers", Icon: ScheduleIcon, to: "/schedulers" },
+  { name: "General", Icon: SettingsIcon, to: "/General" },
+  {
+    name: "Org. Units",
+    Icon: ShuffleIcon,
+    to: "/organisationunits",
+  },
+  { name: "Org. Unit Groups", Icon: ShuffleIcon, to: "/org_unit_groups" },
+  { name: "Category Options", Icon: ShuffleIcon, to: "/category_options" },
+  { name: "Categories", Icon: ShuffleIcon, to: "/categories" },
+  { name: "Category Cobos", Icon: ShuffleIcon, to: "/category_combos" },
+  { name: "Data Elements", Icon: ShuffleIcon, to: "/data_elements" },
+  {
+    name: "Data Element Groups",
+    Icon: ShuffleIcon,
+    to: "/data_element_groups",
+  },
+  { name: "Data Sets", to: "/data_sets" },
 ];
 
 const itemsCoreModules = [
@@ -66,25 +93,31 @@ const itemsCoreModules = [
     name: "CordaidSIS to HIVDR",
     items: nestedItems,
     Icon: InboxIcon,
-    route: "project/5",
   },
   {
     name: "SNIS REPLICA to HIVDR",
     items: nestedItems,
     Icon: InboxIcon,
-    route: "project/6",
   },
-  ,
+
   {
     name: "DRC PROJECT",
     Icon: InboxIcon,
-    route: "project/7",
+    to: "project/6/journal/sub_journal_one",
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    items: nestedItemsSecond,
+    Icon: InboxIcon,
   },
 ];
+
 // Knobs for React props
+
 stories.add("Default", () => (
   <NestedAccordionMenu
     items={itemsCoreModules}
     currentPath="project/6/journal/sub_journal_one"
+    link={Link}
   />
 ));

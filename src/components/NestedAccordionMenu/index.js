@@ -8,19 +8,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
-function Menu({ items, depth, expanded, currentPath, fontsize }) {
+
+function Menu({ items, ...rest }) {
   const classes = useStyles();
   return (
-    <List className={classes.sidebar}>
+    <List component="div" className={classes.sidebar}>
       {items &&
         items.map((menuItem, index) => (
-          <MenuItem
-            key={`${menuItem.name}${index}`}
-            depth={depth}
-            expanded={expanded}
-            item={menuItem}
-            currentPath={currentPath}
-          />
+          <MenuItem key={`${menuItem.name}${index}`} {...menuItem} {...rest} />
         ))}
     </List>
   );

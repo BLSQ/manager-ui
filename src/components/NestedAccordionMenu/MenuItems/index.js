@@ -6,80 +6,84 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Collapse from "@material-ui/core/Collapse";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import classNames from "classnames";
 import useStyles from "./styles";
-function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
+function MenuItem(props) {
+  const { to, name, items, Icon, depth, expanded, currentPath } = props;
   const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
-  const [highlightcolor, setHighlightcolor] = useState(false);
-  const { route, name, items, Icon } = item;
+  const hasSubItems = Array.isArray(items);
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
   }
 
-  function onClick(e) {
-    if (Array.isArray(items)) {
-      toggleCollapse();
-    }
-
-    if (currentPath === route) {
-      if (!highlightcolor) {
-        setHighlightcolor(prevValue => !prevValue);
+  let found = false;
+  function isChildrenActive(subItems) {
+    subItems.forEach(element => {
+      if (element.to === currentPath) {
+        found = true;
       }
-    } else {
-      setHighlightcolor(prevValue => prevValue);
-    }
+      if (element.items) {
+        isChildrenActive(element.items);
+      }
+    });
+    return found;
   }
 
+  const active = to === currentPath && !hasSubItems;
+  const itemsTofilt = items;
+  const activeSubParent = items && isChildrenActive(items);
   let expandIcon;
 
-  if (Array.isArray(items) && items.length) {
+  if (hasSubItems && items.length) {
     expandIcon = !collapsed ? (
       <ExpandLessIcon className={classes.sidebarItemExpandArrowAxpanded} />
     ) : (
       <ExpandMoreIcon className={classes.sidebarItemExpandArrow} />
     );
   }
+  const LinkComponent = props.link;
   return (
     <Fragment>
-      <div
-        className={
-          highlightcolor ? classes.itemhighlighted : classes.itemNohighlighted
-        }
+      <ListItem
+        className={classes.sidebarItem}
+        onClick={hasSubItems ? toggleCollapse : undefined}
+        button
+        to={to}
+        component={hasSubItems ? undefined : LinkComponent}
+        classes={{
+          button: classNames({
+            [classes.activeColor]: active,
+            [classes.activeBackground]:
+              (!hasSubItems && !depth) ||
+              (hasSubItems && collapsed && activeSubParent),
+          }),
+        }}
       >
-        <ListItem
-          className={classes.sidebarItem}
-          onClick={onClick}
-          button
-          dense
-          {...rest}
-          to={route}
-        >
-          <div className={classes.sidebarItemContent}>
-            <ListItemIcon>
-              {Icon && <Icon className={classes.sidebarItemIcon} />}
-            </ListItemIcon>
-            <ListItemText primary={name} />
-          </div>
-          {expandIcon}
-        </ListItem>
-      </div>
+        <div className={classes.sidebarItemContent}>
+          <ListItemIcon>
+            {Icon && <Icon className={classes.sidebarItemIcon} />}
+          </ListItemIcon>
+          <ListItemText primary={name} />
+        </div>
+        {expandIcon}
+      </ListItem>
       <Collapse
         className={classes.collapse}
         in={!collapsed}
         timeout="auto"
         unmountOnExit
       >
-        {Array.isArray(items) ? (
-          <List>
+        {hasSubItems ? (
+          <List component="div">
             {items &&
               items.map((subItem, index) => (
-                <Fragment key={`${subItem.name}${index}`}>
-                  <MenuItem
-                    depth={depth + 1}
-                    item={subItem}
-                    currentPath={currentPath}
-                  />
-                </Fragment>
+                <MenuItem
+                  key={`${subItem.name}${index}`}
+                  depth={depth + 1}
+                  {...subItem}
+                  currentPath={currentPath}
+                />
               ))}
           </List>
         ) : null}
@@ -87,5 +91,5 @@ function MenuItem({ depth = 0, expanded, item, currentPath, ...rest }) {
     </Fragment>
   );
 }
-
+MenuItem.defaultProps = { depth: 0 };
 export default MenuItem;
