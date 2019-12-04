@@ -85,6 +85,7 @@ function MenuItem(props) {
                   depth={depth + 1}
                   {...subItem}
                   currentPath={currentPath}
+                  link={LinkComponent}
                 />
               ))}
           </List>
