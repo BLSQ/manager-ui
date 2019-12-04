@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/BLSQ/manager-ui/compare/v1.7.2...v1.7.3) (2019-12-04)
+
+
+### Bug Fixes
+
+* Nested menu is not clickable ([#8](https://github.com/BLSQ/manager-ui/issues/8)) ([a7bb3b2](https://github.com/BLSQ/manager-ui/commit/a7bb3b2f8fcb60dc7f4f570e687e23b2b0318e8e))
+
 ## [1.7.2](https://github.com/BLSQ/manager-ui/compare/v1.7.1...v1.7.2) (2019-11-28)
 
 
