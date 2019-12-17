@@ -14,6 +14,7 @@ function MenuItem(props) {
   const [collapsed, setCollapsed] = useState(true);
   const hasSubItems = Array.isArray(items);
   let found = false;
+  let hasIcon = false;
   let expandIcon;
 
   function toggleCollapse() {
@@ -22,7 +23,7 @@ function MenuItem(props) {
 
   function isChildrenActive(subItems) {
     subItems.forEach(element => {
-      if (element.to === currentPath) {
+      if (currentPath.startsWith(element.to)) {
         found = true;
       }
       if (element.items) {
@@ -32,10 +33,18 @@ function MenuItem(props) {
     return found;
   }
 
+  function hasIcons(subItems) {
+    subItems.forEach(itm => {
+      if (itm.Icon) {
+        hasIcon = true;
+      }
+    });
+    return hasIcon;
+  }
+
   const active = to === currentPath && !hasSubItems;
   const activeSubParent = hasSubItems && isChildrenActive(items);
-
-  console.log(to, active);
+  const hasIconItems = items && hasIcons(items);
 
   if (hasSubItems && items.length) {
     expandIcon = !collapsed ? (
@@ -45,6 +54,7 @@ function MenuItem(props) {
     );
   }
   const LinkComponent = props.link;
+  const incons = props.hasIconInItems && props.hasIconInItems;
   return (
     <Fragment>
       <ListItem
@@ -63,9 +73,11 @@ function MenuItem(props) {
         }}
       >
         <div className={classes.sidebarItemContent}>
-          <ListItemIcon>
-            {Icon && <Icon className={classes.sidebarItemIcon} />}
-          </ListItemIcon>
+          {incons && (
+            <ListItemIcon>
+              {Icon && <Icon className={classes.sidebarItemIcon} />}
+            </ListItemIcon>
+          )}
           <ListItemText primary={name} />
         </div>
         {expandIcon}
@@ -86,6 +98,7 @@ function MenuItem(props) {
                   {...subItem}
                   currentPath={currentPath}
                   link={LinkComponent}
+                  hasIconInItems={hasIconItems}
                 />
               ))}
           </List>
