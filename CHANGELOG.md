@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/BLSQ/manager-ui/compare/v1.7.3...v1.7.4) (2019-12-18)
+
+
+### Bug Fixes
+
+* Don’t indent nested menu when none have icons ([#9](https://github.com/BLSQ/manager-ui/issues/9)) ([515f984](https://github.com/BLSQ/manager-ui/commit/515f9846c37347a42d39bfdb128f94269f832af4))
+
 ## [1.7.3](https://github.com/BLSQ/manager-ui/compare/v1.7.2...v1.7.3) (2019-12-04)
 
 
