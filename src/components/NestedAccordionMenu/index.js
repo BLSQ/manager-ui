@@ -11,11 +11,18 @@ const useStyles = makeStyles(theme => ({
 
 function Menu({ items, ...rest }) {
   const classes = useStyles();
+  const hasIcons = items && items.some(itm => itm.Icon);
+
   return (
     <List component="div" className={classes.sidebar}>
       {items &&
         items.map((menuItem, index) => (
-          <MenuItem key={`${menuItem.name}${index}`} {...menuItem} {...rest} />
+          <MenuItem
+            key={`${menuItem.name}${index}`}
+            {...menuItem}
+            {...rest}
+            hasIconInItems={hasIcons}
+          />
         ))}
     </List>
   );

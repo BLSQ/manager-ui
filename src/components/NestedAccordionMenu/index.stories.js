@@ -88,6 +88,25 @@ const nestedItemsSecond = [
   { name: "Data Sets", to: "/data_sets" },
 ];
 
+const nestedItemsSecondWithout = [
+  { name: "Schedulers", to: "/schedulers" },
+  { name: "General", to: "/General" },
+  {
+    name: "Org. Units",
+    to: "/organisationunits",
+  },
+  { name: "Org. Unit Groups", to: "/org_unit_groups" },
+  { name: "Category Options", to: "/category_options" },
+  { name: "Categories", to: "/categories" },
+  { name: "Category Cobos", to: "/category_combos" },
+  { name: "Data Elements", to: "/data_elements" },
+  {
+    name: "Data Element Groups",
+    to: "/data_element_groups",
+  },
+  { name: "Data Sets", to: "/data_sets" },
+];
+
 const itemsCoreModules = [
   {
     name: "DRC PROJECT",
@@ -100,6 +119,21 @@ const itemsCoreModules = [
     Icon: InboxIcon,
   },
 ];
+
+const itemsCoreModulesWithoutIcons = [
+  {
+    name: "DRC PROJECT",
+    items: nestedItems,
+    Icon: InboxIcon,
+    to: "project/6/journal/sub_journal_one",
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    items: nestedItemsSecondWithout,
+    Icon: InboxIcon,
+  },
+];
+
 const itemsCoreModulesParentHighlighted = [
   {
     name: "CordaidSIS to HIVDR",
@@ -145,6 +179,14 @@ stories.add("Nested parent as current", () => (
 stories.add("Nested child as current", () => (
   <NestedAccordionMenu
     items={itemsCoreModules}
+    currentPath="project/6/journal/sub_journal_one"
+    link={Link}
+  />
+));
+
+stories.add("Nested child without Icons", () => (
+  <NestedAccordionMenu
+    items={itemsCoreModulesWithoutIcons}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />

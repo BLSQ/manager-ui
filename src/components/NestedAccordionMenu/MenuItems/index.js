@@ -22,7 +22,7 @@ function MenuItem(props) {
 
   function isChildrenActive(subItems) {
     subItems.forEach(element => {
-      if (element.to === currentPath) {
+      if (currentPath.startsWith(element.to)) {
         found = true;
       }
       if (element.items) {
@@ -34,8 +34,7 @@ function MenuItem(props) {
 
   const active = to === currentPath && !hasSubItems;
   const activeSubParent = hasSubItems && isChildrenActive(items);
-
-  console.log(to, active);
+  const hasIcons = items && items.some(itm => itm.Icon);
 
   if (hasSubItems && items.length) {
     expandIcon = !collapsed ? (
@@ -45,6 +44,7 @@ function MenuItem(props) {
     );
   }
   const LinkComponent = props.link;
+  const incons = props.hasIconInItems && props.hasIconInItems;
   return (
     <Fragment>
       <ListItem
@@ -63,9 +63,11 @@ function MenuItem(props) {
         }}
       >
         <div className={classes.sidebarItemContent}>
-          <ListItemIcon>
-            {Icon && <Icon className={classes.sidebarItemIcon} />}
-          </ListItemIcon>
+          {incons && (
+            <ListItemIcon>
+              {Icon && <Icon className={classes.sidebarItemIcon} />}
+            </ListItemIcon>
+          )}
           <ListItemText primary={name} />
         </div>
         {expandIcon}
@@ -86,6 +88,7 @@ function MenuItem(props) {
                   {...subItem}
                   currentPath={currentPath}
                   link={LinkComponent}
+                  hasIconInItems={hasIcons}
                 />
               ))}
           </List>
