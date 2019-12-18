@@ -11,18 +11,8 @@ const useStyles = makeStyles(theme => ({
 
 function Menu({ items, ...rest }) {
   const classes = useStyles();
-  let hasIcon = false;
+  const hasIcons = items && items.some(itm => itm.Icon);
 
-  function hasIcons(subItems) {
-    subItems.forEach(itm => {
-      if (itm.Icon) {
-        hasIcon = true;
-      }
-    });
-    return hasIcon;
-  }
-
-  const hasIconItems = items && hasIcons(items);
   return (
     <List component="div" className={classes.sidebar}>
       {items &&
@@ -31,7 +21,7 @@ function Menu({ items, ...rest }) {
             key={`${menuItem.name}${index}`}
             {...menuItem}
             {...rest}
-            hasIconInItems={hasIconItems}
+            hasIconInItems={hasIcons}
           />
         ))}
     </List>

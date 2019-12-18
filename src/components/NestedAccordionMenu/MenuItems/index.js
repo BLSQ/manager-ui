@@ -14,7 +14,6 @@ function MenuItem(props) {
   const [collapsed, setCollapsed] = useState(true);
   const hasSubItems = Array.isArray(items);
   let found = false;
-  let hasIcon = false;
   let expandIcon;
 
   function toggleCollapse() {
@@ -33,18 +32,9 @@ function MenuItem(props) {
     return found;
   }
 
-  function hasIcons(subItems) {
-    subItems.forEach(itm => {
-      if (itm.Icon) {
-        hasIcon = true;
-      }
-    });
-    return hasIcon;
-  }
-
   const active = to === currentPath && !hasSubItems;
   const activeSubParent = hasSubItems && isChildrenActive(items);
-  const hasIconItems = items && hasIcons(items);
+  const hasIcons = items && items.some(itm => itm.Icon);
 
   if (hasSubItems && items.length) {
     expandIcon = !collapsed ? (
@@ -98,7 +88,7 @@ function MenuItem(props) {
                   {...subItem}
                   currentPath={currentPath}
                   link={LinkComponent}
-                  hasIconInItems={hasIconItems}
+                  hasIconInItems={hasIcons}
                 />
               ))}
           </List>
