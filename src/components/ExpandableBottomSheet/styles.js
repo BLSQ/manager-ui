@@ -45,6 +45,7 @@ export default makeStyles(theme => ({
     padding: theme.spacing(2),
     flex: 1,
     overflowY: "scroll",
+    overflowX: "hidden",
   },
   minimize: {
     marginLeft: "auto",
