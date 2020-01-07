@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/BLSQ/manager-ui/compare/v1.7.4...v1.7.5) (2020-01-07)
+
+
+### Bug Fixes
+
+* Bottom sheet x overflow now hidden ([bcb5614](https://github.com/BLSQ/manager-ui/commit/bcb5614c4a33dbfeb7f5d94d42aa8641e7e6caaf))
+
 ## [1.7.4](https://github.com/BLSQ/manager-ui/compare/v1.7.3...v1.7.4) (2019-12-18)
 
 
