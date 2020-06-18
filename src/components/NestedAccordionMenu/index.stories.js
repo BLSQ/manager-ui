@@ -160,6 +160,21 @@ const simpleNonNestedItems = [
   },
 ];
 
+const decoratedNonNestedItems = [
+  {
+    name: "CordaidSIS to HIVDR",
+    Icon: InboxIcon,
+    to: "project/6/journal/sub_journal_one",
+    decorator: e => <Badge badgeContent="aa">{e}</Badge>
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    Icon: InboxIcon,
+    to: "project/7",
+    decorator: e => < Badge badgeContent="bb" > {e}</Badge >
+  },
+];
+
 stories.add("Simple non nested", () => (
   <NestedAccordionMenu
     items={simpleNonNestedItems}
@@ -194,8 +209,7 @@ stories.add("Nested child without Icons", () => (
 
 stories.add("Decorated menu", () => (
   <NestedAccordionMenu
-    decorator={e => <Badge badgeContent="21">{e}</Badge>}
-    items={simpleNonNestedItems}
+    items={decoratedNonNestedItems}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />
