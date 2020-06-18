@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import classNames from "classnames";
 import useStyles from "./styles";
 function MenuItem(props) {
-  const { to, name, items, Icon, depth, currentPath } = props;
+  const { to, name, decorator = e => e, items, Icon, depth, currentPath } = props;
   const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
   const hasSubItems = Array.isArray(items);
@@ -40,8 +40,8 @@ function MenuItem(props) {
     expandIcon = !collapsed ? (
       <ExpandLessIcon className={classes.sidebarItemExpandArrowAxpanded} />
     ) : (
-      <ExpandMoreIcon className={classes.sidebarItemExpandArrow} />
-    );
+        <ExpandMoreIcon className={classes.sidebarItemExpandArrow} />
+      );
   }
   const LinkComponent = props.link;
   const incons = props.hasIconInItems && props.hasIconInItems;
@@ -62,15 +62,19 @@ function MenuItem(props) {
           }),
         }}
       >
-        <div className={classes.sidebarItemContent}>
-          {incons && (
-            <ListItemIcon>
-              {Icon && <Icon className={classes.sidebarItemIcon} />}
-            </ListItemIcon>
-          )}
-          <ListItemText primary={name} />
-        </div>
-        {expandIcon}
+        {decorator(
+          <Fragment>
+            <div className={classes.sidebarItemContent}>
+              {incons && (
+                <ListItemIcon>
+                  {Icon && <Icon className={classes.sidebarItemIcon} />}
+                </ListItemIcon>
+              )}
+              <ListItemText primary={name} />
+            </div>
+            {expandIcon}
+          </Fragment>
+        )}
       </ListItem>
       <Collapse
         className={classes.collapse}
