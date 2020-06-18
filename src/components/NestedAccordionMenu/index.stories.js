@@ -171,7 +171,7 @@ const decoratedNonNestedItems = [
     name: "SNIS REPLICA to HIVDR II",
     Icon: InboxIcon,
     to: "project/7",
-    decorator: e => < Badge badgeContent="bb" > {e}</Badge >
+    decorator: e => < Badge badgeContent="bb" color="primary">{e}</Badge >
   },
 ];
 
