@@ -10,10 +10,10 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
 import InboxIcon from "@material-ui/icons/Inbox";
-import { makeStyles } from "@material-ui/core/styles";
+import { Badge } from "@material-ui/core";
 
 const stories = storiesOf("Nested Accordion Menu", NestedAccordionMenu);
-function onClick(e, item) {}
+function onClick(e, item) { }
 
 // Add the `withKnobs` decorator to add knobs support to your stories.
 // You can also configure `withKnobs` as a global decorator.
@@ -160,6 +160,21 @@ const simpleNonNestedItems = [
   },
 ];
 
+const decoratedNonNestedItems = [
+  {
+    name: "CordaidSIS to HIVDR",
+    Icon: InboxIcon,
+    to: "project/6/journal/sub_journal_one",
+    decorator: e => <Badge badgeContent="aa">{e}</Badge>
+  },
+  {
+    name: "SNIS REPLICA to HIVDR II",
+    Icon: InboxIcon,
+    to: "project/7",
+    decorator: e => < Badge badgeContent="bb" color="primary">{e}</Badge >
+  },
+];
+
 stories.add("Simple non nested", () => (
   <NestedAccordionMenu
     items={simpleNonNestedItems}
@@ -187,6 +202,14 @@ stories.add("Nested child as current", () => (
 stories.add("Nested child without Icons", () => (
   <NestedAccordionMenu
     items={itemsCoreModulesWithoutIcons}
+    currentPath="project/6/journal/sub_journal_one"
+    link={Link}
+  />
+));
+
+stories.add("Decorated menu", () => (
+  <NestedAccordionMenu
+    items={decoratedNonNestedItems}
     currentPath="project/6/journal/sub_journal_one"
     link={Link}
   />
