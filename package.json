@@ -101,7 +101,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-url": "^1.4.0",
-    "semantic-release": "^15.13.30",
+    "semantic-release": "^17.2.3",
     "storybook-addon-jsx": "^7.1.13",
     "storybook-addon-material-ui": "^0.9.0-alpha.20"
   },
