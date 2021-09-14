@@ -46,7 +46,7 @@ function MenuItem(props) {
     )
   }
 
-  function tootTip(iconItem){
+  function toolTip(iconItem){
     return(
       <Tooltip title={help} placement="top-end">
         {iconItem}
@@ -86,7 +86,7 @@ function MenuItem(props) {
       >
         {decorator(
           <Fragment>
-            {help ? tootTip(iconItem(incons, name)) : iconItem(incons, name)}
+            {help ? toolTip(iconItem(incons, name)) : iconItem(incons, name)}
             {expandIcon}
           </Fragment>
         )}
