@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import List from "@material-ui/core/List";
+import Tooltip from "@material-ui/core/Tooltip";
 import ListItem from "@material-ui/core/ListItem";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
@@ -9,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import classNames from "classnames";
 import useStyles from "./styles";
 function MenuItem(props) {
-  const { to, name, decorator = e => e, items, Icon, depth, currentPath } = props;
+  const { to, name, decorator = e => e, items, Icon, help, depth, currentPath } = props;
   const classes = useStyles({ depth: depth });
   const [collapsed, setCollapsed] = useState(true);
   const hasSubItems = Array.isArray(items);
@@ -30,6 +31,27 @@ function MenuItem(props) {
       }
     });
     return found;
+  }
+
+  function iconItem(incons, name){
+    return (
+      <div className={classes.sidebarItemContent}>
+        {incons && (
+          <ListItemIcon>
+            {Icon && <Icon className={classes.sidebarItemIcon} />}
+          </ListItemIcon>
+        )}
+        <ListItemText primary={name} />
+      </div>
+    )
+  }
+
+  function toolTip(iconItem){
+    return(
+      <Tooltip title={help} placement="top-end">
+        {iconItem}
+      </Tooltip>
+    )
   }
 
   const active = to === currentPath && !hasSubItems;
@@ -64,14 +86,7 @@ function MenuItem(props) {
       >
         {decorator(
           <Fragment>
-            <div className={classes.sidebarItemContent}>
-              {incons && (
-                <ListItemIcon>
-                  {Icon && <Icon className={classes.sidebarItemIcon} />}
-                </ListItemIcon>
-              )}
-              <ListItemText primary={name} />
-            </div>
+            {help ? toolTip(iconItem(incons, name)) : iconItem(incons, name)}
             {expandIcon}
           </Fragment>
         )}
