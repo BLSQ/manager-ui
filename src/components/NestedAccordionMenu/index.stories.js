@@ -159,7 +159,7 @@ const simpleNonNestedItems = [
     name: "SNIS REPLICA to HIVDR II",
     Icon: InboxIcon,
     to: "project/7",
-    help: "CordaidSIS to HIVDR"
+    help: "SNIS REPLICA to HIVDR II"
   },
 ];
 

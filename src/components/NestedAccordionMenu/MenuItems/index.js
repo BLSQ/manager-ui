@@ -48,7 +48,7 @@ function MenuItem(props) {
 
   function tootTip(iconItem){
     return(
-      <Tooltip title={help}>
+      <Tooltip title={help} placement="top-start">
         {iconItem}
       </Tooltip>
     )
