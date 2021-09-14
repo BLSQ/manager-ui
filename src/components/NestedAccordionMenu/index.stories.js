@@ -46,6 +46,7 @@ const nestedItems = [
     name: "Journal",
     Icon: ListIcon,
     items: subItems,
+    help: "The project Journal"
   },
   { name: "Schedulers", Icon: ScheduleIcon, to: "/schedulers" },
   { name: "General", Icon: SettingsIcon, to: "/General" },
@@ -152,11 +153,13 @@ const simpleNonNestedItems = [
     name: "CordaidSIS to HIVDR",
     Icon: InboxIcon,
     to: "project/6/journal/sub_journal_one",
+    help: "CordaidSIS to HIVDR"
   },
   {
     name: "SNIS REPLICA to HIVDR II",
     Icon: InboxIcon,
     to: "project/7",
+    help: "CordaidSIS to HIVDR"
   },
 ];
 
