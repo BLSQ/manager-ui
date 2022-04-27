@@ -8,6 +8,7 @@ import HelpAvatarComponent from "./components/HelpAvatar";
 import HesabuLogoComponent from "./components/ProductsLogos/HesabuLogo";
 import HorizontalBulletListComponent from "./components/HorizontalBulletList";
 import IasoLogoComponent from "./components/ProductsLogos/IasoLogo";
+import FeedbackLoopLogoComponent from "./components/ProductsLogos/FeedbackLoopLogo";
 import InfoBoxComponent from "./components/InfoBox";
 import KeyNumberBlockComponent from "./components/KeyNumberBlock";
 import ProgressButtonComponent from "./components/ProgressButton";
@@ -24,6 +25,7 @@ export const HelpAvatar = HelpAvatarComponent;
 export const HesabuLogo = HesabuLogoComponent;
 export const HorizontalBulletList = HorizontalBulletListComponent;
 export const IasoLogo = IasoLogoComponent;
+export const FeedbackLoopLogo = FeedbackLoopLogoComponent
 export const InfoBox = InfoBoxComponent;
 export const KeyNumberBlock = KeyNumberBlockComponent;
 export const ProgressButton = ProgressButtonComponent;
